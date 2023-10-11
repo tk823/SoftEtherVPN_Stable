@@ -126,10 +126,10 @@
 
 
 // Version number
-#define	CEDAR_VER					439
+#define	CEDAR_VER					443
 
 // Build Number
-#define	CEDAR_BUILD					9772
+#define	CEDAR_BUILD					9799
 
 // Beta number
 //#define	BETA_NUMBER					3
@@ -148,12 +148,12 @@
 #endif	// BUILD_PLACE
 
 // Specifies the build date
-#define	BUILD_DATE_Y		2022
-#define	BUILD_DATE_M		4
-#define	BUILD_DATE_D		26
-#define	BUILD_DATE_HO		17
-#define	BUILD_DATE_MI		40
-#define	BUILD_DATE_SE		1
+#define	BUILD_DATE_Y		2023
+#define	BUILD_DATE_M		8
+#define	BUILD_DATE_D		31
+#define	BUILD_DATE_HO		10
+#define	BUILD_DATE_MI		30
+#define	BUILD_DATE_SE		0
 
 // Tolerable time difference
 #define	ALLOW_TIMESTAMP_DIFF		(UINT64)(3 * 24 * 60 * 60 * 1000)
@@ -183,7 +183,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #define	MAX_ACCOUNT_NAME_LEN		255		// Maximum account name length
-#define	MAX_USERNAME_LEN			255		// User name maximum length
 #define	MAX_PASSWORD_LEN			255		// Password name maximum length
 #define	MAX_PROXY_USERNAME_LEN		255		// Proxy user name maximum length
 #define	MAX_PROXY_PASSWORD_LEN		255		// Proxy Password maximum length
@@ -194,10 +193,8 @@
 #define	MAX_CONNECTION_NAME_LEN		255		// Maximum length of connection name
 #define	MAX_DEVICE_NAME_LEN			31		// Device name maximum length
 #define	MAX_DEVICE_NAME_LEN_9X		4		// Maximum length of Virtual LAN card name in Win9x
-#define	MAX_ACCESSLIST_NOTE_LEN		255		// Maximum length of the note of access list entry
 #define	MAX_SECURE_DEVICE_FILE_LEN	255		// Secure device file name maximum length
 #define	MAX_ADMIN_OPTION_NAME_LEN	63		// Management option name
-#define	MAX_REDIRECT_URL_LEN		255		// URL length to redirect
 
 
 //////////////////////////////////////////////////////////////////////

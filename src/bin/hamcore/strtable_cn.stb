@@ -1050,7 +1050,8 @@ VGC_VER_DIFF			VPN Gate 客户端插件的版本与 SoftEther VPN 客户端相�
 
 VGS_STOP				VPN Gate 服务将在您点击 确定 按钮后停止。\r\n\r\n在 VPN Gate 服务被停止后，这台计算机将不会接受新的 VPN 连接请求，但是，仍然活跃的 VPN 会话可能会残留。\r\n (这类 VPN 会话有时在枚举中不可见。) \r\n\r\n要想彻底终止所有仍然活跃的 VPN 会话，重启 SoftEther VPN Server 或者 SoftEther VPN Client 服务，或者重新启动这台计算机。
 
-VGS_START				This will activate the VPN Gate Relay Service function.\r\n\r\nVPN Gate Relay Service function must be activated by your own risk.\r\nSome countries prohibit using of encrypted VPN by laws.\r\nFor more details about VPN Gate Relay Service please visit http://www.vpngate.net/en/join.aspx.\r\n\r\nThe VPN Gate Academic Experiment Service is operated as a research project at the graduate school on University of Tsukuba, Japan. The service is governed under the Japanese laws. Other countries' laws are none of our concerns nor responsibilities.\r\n\r\nBy nature, there are almost 200 countries in the World, with different laws. It is impossible to verify every countries' laws and regulations and make the software comply with all countries' laws in advance to release the software. If a user uses VPN Gate service in a specific country, and damaged by public servants of the authority, the developer of either the service or software will never be liable to recover or compensate such damages or criminal responsibilities. By using this software and service, the user must observe all concerned laws and rules with user's own responsibility. The user will be completely liable to any damages and responsibilities which are results of using this software and service, regardless of either inside or outside of Japan's territory. VPN Gate Relay Service will be installed on your computer as system services. System services always run in the background. After you terminate these management GUI tools, this system service will continue to run in the background. System services consume CPU time, computer power, memory and disk space. If you don't agree nor understand the above warnings, do not use any of VPN Gate Academic Experiment Service functions.
+VGS_START				This will activate the VPN Gate Relay Service function.\r\n\r\nAfter the VPN Gate Relay Service will be enabled and you are participating in the VPN Gate experiment as a volunteer, the VPN Gate Relay Service will relay VPN communications and packets from any VPN Gate clients via the Internet. Therefore, the source IP address of the communication via a VPN tunnel will be replaced to the IP address of the computer running the VPN Gate Relay Service. Since VPN communications are encrypted, the communication between the VPN client and the VPN Gate Relay Service will be able to avoid censorship by government censorship firewalls. The VPN Gate Relay Service runs as a Windows background program, even before the user logs on.\r\n\r\nIt is assumed that users will use VPN Gate primarily to circumvent censorship; VPN Gate Relay Service records VPN connection logs and packet logs; note that unlike Tor, VPN Gate has no anonymizing effect.\r\n\r\nRunning the VPN Gate Relay Service and offering it to other VPN Gate users over the Internet has the same technical effect as running Public WiFi at airports, town squares, or other public spaces, etc. As Public WiFi also saves communication logs, the VPN Gate Relay Service does save communication logs. It is stored on the disk of the computer running the VPN Gate Relay Service. Both administrators of VPN Gate Relay Services and VPN users may encounter legal problems as a result of their communications through the VPN Gate Relay Service. In this case, it may be necessary for the administrator of the VPN Gate Relay Service to disclose the communication logs to the police, courts, lawyers, etc. If the administrator is requested or ordered to disclose the logs in accordance with the applicated laws, the administrator is obligated to cooperate lawfully in order to maintain the public safety of the Internet. Please understand the above before activating the VPN Gate Relay Service.\r\n\r\nVPN Gate Relay Service function must be activated by your own risk.\r\nSome countries prohibit using of encrypted VPN by laws.\r\n\r\nFor more details about VPN Gate Relay Service please visit http://www.vpngate.net/en/join.aspx.\r\n\r\nThe VPN Gate Academic Experiment Service is operated as a research project at the graduate school on University of Tsukuba, Japan. The service is governed under the Japanese laws. Other countries' laws are none of our concerns nor responsibilities.\r\n\r\nBy nature, there are almost 200 countries in the World, with different laws. It is impossible to verify every countries' laws and regulations and make the software comply with all countries' laws in advance to release the software. If a user uses VPN Gate service in a specific country, and damaged by public servants of the authority, the developer of either the service or software will never be liable to recover or compensate such damages or criminal responsibilities. By using this software and service, the user must observe all concerned laws and rules with user's own responsibility. The user will be completely liable to any damages and responsibilities which are results of using this software and service, regardless of either inside or outside of Japan's territory. VPN Gate Relay Service will be installed on your computer as system services. System services always run in the background. After you terminate these management GUI tools, this system service will continue to run in the background. System services consume CPU time, computer power, memory and disk space. If you don't agree nor understand the above warnings, do not use any of VPN Gate Academic Experiment Service functions.\r\n
+VGS_START2				Enables the VPN Gate Relay Service function. Are you sure?
 
 
 
@@ -2436,7 +2437,7 @@ STATIC1						您可以更改 VPN Client 的设置
 STATIC2						远程管理(&E)
 STATIC3						您可以通过使用 VPN Client 管理器远程模式从另一台计算机上远程管理 VPN Client 服务程序。
 R_ALLOW_REMOTE_CONFIG		允许 VPN Client 服务的远程管理(&R)
-S_WARNING					建议您在允许远程管理时设置密码。在菜单里选择“工具” >“设置密码”来设置密码。
+S_WARNING					如果你允许远程管理，你必须设置一个密码。在菜单里选择“工具” >“设置密码”来设置密码。必须重新启动 VPN Client 服务，以应用远程管理可用性的配置变化。
 STATIC4						在通讯闲置一段时间后自动断开互联网连接的环境下，可以通过向互联网上任意主机发送假数据包的方式来保持互联网连接。
 R_USE_KEEP_CONNECT			使用保持 Internet 连接功能(&K)
 S_HOSTNAME					主机名(&H):
@@ -2453,6 +2454,9 @@ STATIC5						其它配置(&O)
 R_ALPHA						用户界面透明(&A)
 STATIC6						※注意:透明设置将在连接管理器重启后生效。
 STATIC7						保持互联网连接功能(&K)
+R_TUNNELCRACK				启用 Tu&nnelCrack 保护
+STATIC11					当任何 VPN 连接处于活动状态时，禁止本地物理网络通信。建议在使用不受信任的恶意公共 Wi-Fi 时使用。
+STATIC12					高级安全
 
 
 PREFIX						D_ABOUT
@@ -4465,7 +4469,7 @@ CMD_VPNCMD_HOST_2			指定的主机名或正在运行的目标 VPN Client 计算
 CMD_VPNCMD_HOST_3			目标 IP 地址的主机名:
 CMD_VPNCMD_HUB_1			如果通过虚拟 HUB 管理模式连接到服务器，请输入虚拟 HUB 的名称。\n如果通过服务器管理模式连接，无须输入任何内容请按回车键。\n
 CMD_VPNCMD_HUB_2			指定虚拟 HUB 名称:
-CMD_VPNCMD_ABOUT			SoftEther VPN 命令行管理工具 (vpncmd 命令)\n%S\n%S\nCopyright (c) SoftEther VPN Project. All Rights Reserved.\n
+CMD_VPNCMD_ABOUT			SoftEther VPN 命令行管理工具 (vpncmd 命令)\n%S\n%S\nCopyright (c) 2012-%u SoftEther VPN Project. All Rights Reserved.\n
 CMD_VPNCMD_PASSWORD_1		访问被拒绝。可能是密码不正确，或者是您以不正确的管理模式连接。您可以尝试再次输入密码。要取消，请按 Ctrl + D。
 CMD_VPNCMD_PASSWORD_2		密码: 
 CMD_VPNCMD_ERROR			发生错误。(错误代码: %u)\n%s
@@ -6799,13 +6803,13 @@ CMD_AccountImport_OK		连接设置 "%s" 已导入。
 
 # RemoteEnable 命令
 CMD_RemoteEnable			允许 VPN 客户服务的远程管理
-CMD_RemoteEnable_Help		对 VPN Client 服务，从本地主机以外的远程计算机上，允许通过命令行管理设施或 VPN Client 管理器员进行连接和管理。
+CMD_RemoteEnable_Help		对 VPN Client 服务，从本地主机以外的远程计算机上，允许通过命令行管理设施或 VPN Client 管理器员进行连接和管理。必须重新启动 VPN Client 服务，以应用远程管理可用性的配置变化。如果你允许远程管理，你必须设置一个密码。
 CMD_RemoteEnable_Args		RemoteEnable
 
 
 # RemoteDisable 命令
 CMD_RemoteDisable			禁止 VPN 客户服务的远程管理
-CMD_RemoteDisable_Help		对 VPN Client 服务，从本地主机以外的远程计算机上，禁止通过命令行管理设施或 VPN Client 管理器员进行连接和管理。
+CMD_RemoteDisable_Help		对 VPN Client 服务，从本地主机以外的远程计算机上，禁止通过命令行管理设施或 VPN Client 管理器员进行连接和管理。必须重新启动 VPN 客户端服务，以应用远程管理可用性的配置变化。
 CMD_RemoteDisable_Args		RemoteDisable
 
 

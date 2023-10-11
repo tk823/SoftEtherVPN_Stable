@@ -747,7 +747,7 @@ void MsFreeIsLocked(MS_ISLOCKED *d);
 void MsStartIsLockedThread();
 void MsStopIsLockedThread();
 bool MsDetermineIsLockedByWtsApi();
-
+void MsNewGuid(void *guid);
 
 bool MsShutdown(bool reboot, bool force);
 bool MsShutdownEx(bool reboot, bool force, UINT time_limit, char *message);
@@ -1010,6 +1010,7 @@ bool MsIsIA64();
 void *MsDisableWow64FileSystemRedirection();
 void MsRestoreWow64FileSystemRedirection(void *p);
 void MsSetWow64FileSystemRedirectionEnable(bool enable);
+bool MsIsWindows11();
 bool MsIsWindows10();
 bool MsIsWindows81();
 bool MsIsWindows8();
